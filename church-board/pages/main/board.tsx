@@ -47,21 +47,19 @@ const columns = [
     },
 ];
 
-
-let data = [];
-
-
-const getData = async () => {
-    const res = await fetch('/api/board');
-    data = await res.json();
-    return data;
-}
-
-
-
 export default function Board() {
-    const [boardList, setBoardList] = useState([]);
-    getData().then(r => data = r)
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('/api/board').then(res => res.json()).then((result) => {
+            setIsLoaded(true);
+            setItems(result)
+        }, (error) => {
+            setIsLoaded(true);
+            setError(error)
+        })
+    }, [])
     return(
         <>
             <Head>
@@ -70,7 +68,7 @@ export default function Board() {
                 </title>
             </Head>
             <SideBar/>
-            <Table columns={columns} dataSource={data}/>
+            <Table columns={columns} dataSource={items}/>
         </>
     )
 }
