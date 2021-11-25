@@ -16,6 +16,18 @@ const StyledContent = styled(Content)`
   min-height: 280px;
 `;
 
+const StyledLayout = styled(Layout)`
+  height: 100vh;
+`
+
+const StyledSider = styled(Sider)`
+  height: 100%;
+`
+
+const StyledMenu = styled(Menu)`
+  width: 100%;
+`
+        
 class SideBar extends React.Component {
     constructor(props) {
         super(props);
@@ -32,13 +44,12 @@ class SideBar extends React.Component {
 
     render() {
         return (
-            <Layout>
-                <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+            <StyledLayout>
+                <StyledSider trigger={null} collapsible collapsed={this.state.collapsed}>
                     <Link href={"/"}><a><HomeImage /></a></Link>
                     <br/>
                     <br/>
-                    <Menu
-                        style={{width: 256}}
+                    <StyledMenu
                         defaultSelectedKeys={['1']}
                         defaultOpenKeys={['sub1']}
                     >
@@ -48,8 +59,8 @@ class SideBar extends React.Component {
                         <Menu.Item key="2" icon={<UnorderedListOutlined/>}>
                             <Link href={"/main/board"}>board</Link>
                         </Menu.Item>
-                    </Menu>
-                </Sider>
+                    </StyledMenu>
+                </StyledSider>
                 <Layout className="site-layout">
                     <Header className="site-layout-background" style={{ padding: 0 }}>
                         {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
@@ -61,7 +72,7 @@ class SideBar extends React.Component {
                         {this.props.children}
                     </StyledContent>
                 </Layout>
-            </Layout>
+            </StyledLayout>
         );
     }
 }

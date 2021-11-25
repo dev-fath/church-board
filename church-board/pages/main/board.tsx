@@ -1,7 +1,8 @@
 import Head from "next/head";
 import React, {useEffect, useState} from "react";
 import SideBar from "../../components/side-bar";
-import {Space, Table, Tag} from "antd";
+import {Button, Space, Table, Tag} from "antd";
+import {SearchOutlined} from "@ant-design/icons";
 
 const columns = [
     {
@@ -62,9 +63,8 @@ export default function Board() {
     }, [])
     return(
         <>
-            <SideBar>
-                <Table columns={columns} dataSource={items}/>
-            </SideBar>
+            <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
+            <Table columns={columns} dataSource={items}/>          
         </>
     )
 }
