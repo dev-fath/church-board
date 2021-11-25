@@ -1,6 +1,5 @@
 import Head from "next/head";
 import React from "react";
-import SideBar from "../../components/side-bar";
 
 export default function Home() {
     return (
@@ -11,11 +10,7 @@ export default function Home() {
                     Sckim New Home
                 </title>
             </Head>
-            <SideBar children={homeContent}/>
+            <div> this is home </div>
         </>
     )
-}
-
-const homeContent = () => {
-    return '<div> this is home </div>'
 }
