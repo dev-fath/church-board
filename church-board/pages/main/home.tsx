@@ -11,8 +11,11 @@ export default function Home() {
                     Sckim New Home
                 </title>
             </Head>
-            <SideBar/>
-            <div> this is home </div>
+            <SideBar children={homeContent}/>
         </>
     )
+}
+
+const homeContent = () => {
+    return '<div> this is home </div>'
 }
