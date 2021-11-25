@@ -62,13 +62,9 @@ export default function Board() {
     }, [])
     return(
         <>
-            <Head>
-                <title>
-                    Sckim New Board
-                </title>
-            </Head>
-            <SideBar/>
-            <Table columns={columns} dataSource={items}/>
+            <SideBar>
+                <Table columns={columns} dataSource={items}/>
+            </SideBar>
         </>
     )
 }
