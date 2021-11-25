@@ -64,7 +64,7 @@ export default function Board() {
     return(
         <>
             <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
-            <Table columns={columns} dataSource={items}/>
+            <Table columns={columns} dataSource={items}/>          
         </>
     )
 }

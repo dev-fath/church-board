@@ -27,7 +27,7 @@ const StyledSider = styled(Sider)`
 const StyledMenu = styled(Menu)`
   width: 100%;
 `
-
+        
 class SideBar extends React.Component {
     constructor(props) {
         super(props);

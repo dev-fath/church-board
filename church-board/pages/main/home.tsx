@@ -14,3 +14,7 @@ export default function Home() {
         </>
     )
 }
+
+const homeContent = () => {
+    return '<div> this is home </div>'
+}
