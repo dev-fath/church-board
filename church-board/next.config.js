@@ -14,5 +14,14 @@ module.exports = {
     config.resolve.modules.push(__dirname)
 
     return config;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/main/home',
+        permanent: true
+      }
+    ]
   }
 }

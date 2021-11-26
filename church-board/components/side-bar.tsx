@@ -46,7 +46,7 @@ class SideBar extends React.Component {
         return (
             <StyledLayout>
                 <StyledSider trigger={null} collapsible collapsed={this.state.collapsed}>
-                    <Link href={"/"}><a><HomeImage /></a></Link>
+                    <Link href={"/main/home"}><a><HomeImage /></a></Link>
                     <br/>
                     <br/>
                     <StyledMenu
