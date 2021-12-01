@@ -1,11 +1,10 @@
 import React from 'react';
 import { Form, Input, InputNumber, Button } from 'antd';
 import styled from "styled-components";
-import {Router} from "next/router";
 
 interface IArticleForm {
   title: string;
-  name: string;
+  author: string;
   email: string;
   age: number;
   context: string;
@@ -53,7 +52,10 @@ const ArticleForm = () => {
 
   return (
     <StyledForm {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-      <StyledFormItem name={['article', 'name']} label="Name" rules={[{ required: true }]}>
+      <StyledFormItem name={['article', 'title']} label="Title" rules={[{ required: true }]}>
+        <Input />
+      </StyledFormItem>
+      <StyledFormItem name={['article', 'author']} label="Name" rules={[{ required: true }]}>
         <Input />
       </StyledFormItem>
       <StyledFormItem name={['article', 'email']} label="Email" rules={[{ type: 'email' }]}>
@@ -62,7 +64,7 @@ const ArticleForm = () => {
       <StyledFormItem name={['article', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
         <InputNumber />
       </StyledFormItem>
-      <StyledFormItem name={['article', 'introduction']} label="Introduction">
+      <StyledFormItem name={['article', 'introduction']} label="Introduction" rules={[{ required: true }]}>
         <Input.TextArea rows={20} />
       </StyledFormItem>
       <StyledFormItem wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
