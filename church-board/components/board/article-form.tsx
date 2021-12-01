@@ -1,7 +1,15 @@
 import React from 'react';
 import { Form, Input, InputNumber, Button } from 'antd';
 import styled from "styled-components";
+import {Router} from "next/router";
 
+interface IArticleForm {
+  title: string;
+  name: string;
+  email: string;
+  age: number;
+  context: string;
+}
 const StyledForm = styled(Form)`
   margin-top: 32px;
 `;
@@ -35,20 +43,26 @@ const validateMessages = {
 const ArticleForm = () => {
   const onFinish = (values: any) => {
     console.log(values);
+    fetch('/api/add-article', {
+      method: 'post',
+      body: JSON.stringify(values)
+    }).then(res => {
+      window.location.href = '/main/board'
+    })
   };
 
   return (
     <StyledForm {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
-      <StyledFormItem name={['user', 'name']} label="Name" rules={[{ required: true }]}>
+      <StyledFormItem name={['article', 'name']} label="Name" rules={[{ required: true }]}>
         <Input />
       </StyledFormItem>
-      <StyledFormItem name={['user', 'email']} label="Email" rules={[{ type: 'email' }]}>
+      <StyledFormItem name={['article', 'email']} label="Email" rules={[{ type: 'email' }]}>
         <Input />
       </StyledFormItem>
-      <StyledFormItem name={['user', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
+      <StyledFormItem name={['article', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
         <InputNumber />
       </StyledFormItem>
-      <StyledFormItem name={['user', 'introduction']} label="Introduction">
+      <StyledFormItem name={['article', 'introduction']} label="Introduction">
         <Input.TextArea rows={20} />
       </StyledFormItem>
       <StyledFormItem wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
