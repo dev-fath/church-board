@@ -5,6 +5,11 @@
 * nextJS 12.0.*
 * antd 4.16.*
 
+### web server
+
+* AWS EC2
+* AWS S3
+
 ### Get Started
 ```
 git clone https://github.com/dev-fath/church-board.git
